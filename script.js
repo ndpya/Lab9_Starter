@@ -138,34 +138,7 @@ errorBtns[6].onclick = () => console.dir(sampleData);
 
 errorBtns[7].onclick = () => console.dirxml(document.body);
 
-errorBtns[8].onclick = () => {
-  try {
-    console.group('Auth Flow');
-    console.log('→ checking token');
-    
-    const validateToken = (token) => {
-      if (!token) {
-        throw new Error('Token not found in storage');
-      }
-      if (token.length < 10) {
-        throw new Error('Token is too short - possibly corrupted');
-      }
-      return true;
-    };
-    
-    let storedToken = localStorage.getItem('auth_token');
-    validateToken(storedToken);
-    console.log('✓ Token validated');
-    console.log('→ fetching user data');
-    console.log('✓ User data loaded');
-    
-  } catch (error) {
-    console.error('Auth failed:', error.message);
-    console.error('→ Redirecting to login...');
-  } finally {
-    console.groupEnd();
-  }
-};
+errorBtns[8].onclick = () => console.group();
 
 errorBtns[9].onclick = () => console.groupEnd();        
 
